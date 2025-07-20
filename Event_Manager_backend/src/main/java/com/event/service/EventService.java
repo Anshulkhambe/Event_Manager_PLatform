@@ -1,0 +1,79 @@
+package com.event.service;
+
+import com.event.bean.Event;
+import com.event.dto.EventDTO;
+import com.event.repository.EventRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant; // Import Instant
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class EventService {
+
+    @Autowired
+    private EventRepository eventRepository;
+
+    @Transactional
+    public Event createEvent(EventDTO eventDTO) {
+        Event event = new Event();
+        event.setTitle(eventDTO.getTitle());
+        event.setDescription(eventDTO.getDescription());
+        event.setDateTime(eventDTO.getDateTime()); // Uses Instant
+        event.setLocation(eventDTO.getLocation());
+        event.setPrice(eventDTO.getPrice());
+        event.setTotalTickets(eventDTO.getTotalTickets());
+        event.setAvailableTickets(eventDTO.getTotalTickets()); // Initially, available tickets = total tickets
+        event.setImageUrl(eventDTO.getImageUrl());
+        return eventRepository.save(event);
+    }
+
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
+    }
+
+    public Optional<Event> getEventById(Long id) {
+        return eventRepository.findById(id);
+    }
+
+    @Transactional
+    public Event updateEvent(Long id, EventDTO eventDTO) {
+        Event existingEvent = eventRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Event not found with ID: " + id));
+
+        // Calculate ticket difference if totalTickets changed
+        int oldTotalTickets = existingEvent.getTotalTickets();
+        int newTotalTickets = eventDTO.getTotalTickets();
+        int availableTicketsChange = newTotalTickets - oldTotalTickets;
+
+        // Update fields
+        existingEvent.setTitle(eventDTO.getTitle());
+        existingEvent.setDescription(eventDTO.getDescription());
+        existingEvent.setDateTime(eventDTO.getDateTime()); // Uses Instant
+        existingEvent.setLocation(eventDTO.getLocation());
+        existingEvent.setPrice(eventDTO.getPrice());
+        existingEvent.setTotalTickets(newTotalTickets);
+        existingEvent.setImageUrl(eventDTO.getImageUrl());
+
+        // Adjust available tickets based on change in total tickets
+        // Ensure available tickets don't go below zero
+        int newAvailableTickets = existingEvent.getAvailableTickets() + availableTicketsChange;
+        if (newAvailableTickets < 0) {
+            throw new RuntimeException("Cannot reduce total tickets below current booked tickets.");
+        }
+        existingEvent.setAvailableTickets(newAvailableTickets);
+
+        return eventRepository.save(existingEvent);
+    }
+
+    @Transactional
+    public void deleteEvent(Long id) {
+        if (!eventRepository.existsById(id)) {
+            throw new RuntimeException("Event not found with ID: " + id);
+        }
+        eventRepository.deleteById(id);
+    }
+}

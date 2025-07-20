@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.event.repository.BookingRepository"/>
+    <fullyQualifiedTypeName name="com.event.repository.EventRepository"/>
+    <fullyQualifiedTypeName name="com.event.bean.Event"/>
+    <fullyQualifiedTypeName name="com.event.service.RazorpayService"/>
+    <fullyQualifiedTypeName name="com.event.service.BookingService"/>
+    <fullyQualifiedTypeName name="com.event.service.EventService"/>
+    <fullyQualifiedTypeName name="com.event.bean.Booking"/>
+    <fullyQualifiedTypeName name="com.event.bean.OrderRequest"/>
+    <fullyQualifiedTypeName name="com.event.dto.OrderRequest"/>
+    <fullyQualifiedTypeName name="com.event.dto.PaymentVerificationRequest"/>
+    <fullyQualifiedTypeName name="com.razorpay.Utils"/>
+    <fullyQualifiedTypeName name="com.event.dto.PaymentResponse"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
+    <fullyQualifiedTypeName name="org.springframework.mail.SimpleMailMessage"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="com.event.repository.RoleRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Min"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Size"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="com.event.dto.JwtResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.event.bean.Role"/>
+</qualifiedTypeNameHistroy>
