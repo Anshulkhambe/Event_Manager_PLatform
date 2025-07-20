@@ -21,8 +21,8 @@
     
     WORKDIR /app
     
-    # Replace with the actual JAR name generated in /target
-    COPY --from=builder /app/target/Event_Manager_Platform-0.0.1-SNAPSHOT.jar app.jar
+    # Use correct artifact JAR file name
+    COPY --from=builder /app/target/Event_Manager_backend-0.0.1-SNAPSHOT.jar app.jar
     
     EXPOSE 8080
     ENV PORT=8080
