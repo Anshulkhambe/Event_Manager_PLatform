@@ -1,9 +1,6 @@
 # ---------- Build Stage ----------
     FROM eclipse-temurin:17-jdk AS builder
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 WORKDIR /app
 
 # Copy Maven Wrapper and necessary files
@@ -31,9 +28,8 @@ EXPOSE 8080
 ENV PORT=8080
 
 CMD ["java", "-jar", "app.jar"]
-=======
->>>>>>> 0395907 (applified)
-    WORKDIR /app
+
+WORKDIR /app
     
     # Copy Maven Wrapper and necessary files
     COPY mvnw .
@@ -60,9 +56,5 @@ CMD ["java", "-jar", "app.jar"]
     ENV PORT=8080
     
     CMD ["java", "-jar", "app.jar"]
-<<<<<<< HEAD
     
-=======
-    
->>>>>>> 9ab7a8e (app)
->>>>>>> 0395907 (applified)
+  
