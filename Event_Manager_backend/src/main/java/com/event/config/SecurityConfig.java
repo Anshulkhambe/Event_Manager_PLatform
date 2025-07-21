@@ -89,16 +89,18 @@ public class SecurityConfig {
         return http.build();
     }
 
-  @Bean
+ @Bean
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of("https://event-manager-platform.onrender.com"));
-    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-    configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept"));
-    configuration.setAllowCredentials(true);
+    configuration.setAllowedOrigins(List.of("https://event-manager-platform.onrender.com")); // your frontend domain
+    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    configuration.setAllowedHeaders(List.of("*"));
+    configuration.setAllowCredentials(true); // required if you're sending cookies or Authorization headers
+
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/", configuration);
+    source.registerCorsConfiguration("/**", configuration);
     return source;
 }
+
 
 }
