@@ -19,7 +19,7 @@ import com.event.service.EventService;
 
 @RestController
 @RequestMapping("/api/payments")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://event-manager-platform.onrender.com")
 public class PaymentController {
 
     @Autowired

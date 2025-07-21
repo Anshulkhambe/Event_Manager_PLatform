@@ -1,14 +1,11 @@
         // src/api/events.js
-        import api from './api'; // IMPORTANT: Import your configured Axios API instance
+        import api from './api'; 
 
-        // Note: For all authenticated requests, directly use the 'api' instance
-        // imported from './api'. The 'api' instance has an interceptor configured
-        // to automatically attach the JWT token from localStorage.
+        
 
         export const getAllEvents = async () => {
           try {
-            // This endpoint is publicly accessible (GET /api/events),
-            // but using the 'api' instance is fine and consistent.
+           
             const response = await api.get('/events');
             return response.data;
           } catch (error) {
@@ -19,8 +16,7 @@
 
         export const getEventById = async (id) => {
           try {
-            // This endpoint is publicly accessible (GET /api/events/{id}),
-            // but using the 'api' instance is fine and consistent.
+         
             const response = await api.get(`/events/${id}`);
             return response.data;
           } catch (error) {

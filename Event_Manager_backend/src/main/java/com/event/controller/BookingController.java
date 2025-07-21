@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/bookings")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://event-manager-platform.onrender.com")
 public class BookingController {
 
     @Autowired

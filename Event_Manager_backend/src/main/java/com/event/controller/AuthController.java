@@ -23,7 +23,7 @@
 
     @RestController
     @RequestMapping("/api/auth") // Base path for all endpoints in this controller
-    @CrossOrigin(origins = "http://localhost:5173") // Ensure this matches your frontend URL
+    @CrossOrigin(origins = "https://event-manager-platform.onrender.com") // Ensure this matches your frontend URL
     public class AuthController {
 
         @Autowired

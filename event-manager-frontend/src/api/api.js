@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create an Axios instance with a base URL and default headers
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api', // IMPORTANT: Ensure this EXACTLY matches your Spring Boot backend URL
+  baseURL: 'https://event-manager-platform1.onrender.com/api', // IMPORTANT: Ensure this EXACTLY matches your Spring Boot backend URL
   headers: {
     'Content-Type': 'application/json',
   },

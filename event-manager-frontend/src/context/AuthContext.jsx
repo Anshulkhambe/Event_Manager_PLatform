@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
    * @returns {Promise<any>} Response data from the backend.
    */
   const register = async (username, email, password) => {
-    const response = await axios.post('http://localhost:8080/api/auth/register', {
+    const response = await axios.post('https://event-manager-platform1.onrender.com/api/auth/register', {
       username,
       email,
       password
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     try {
       // Make the API call to your backend's login endpoint
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
+      const response = await axios.post('https://event-manager-platform1.onrender.com/api/auth/login', {
         username,
         password
       });
